@@ -9,51 +9,172 @@
 		<meta name="text:Disqus Shortname" content="" />
 
 		<style type="text/css">
-			body, html { background: #fff; margin:0px; padding:0px; border:0px; font-family: "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif; font-size:16px; line-height:150%; color:#222; }
-			pre { font-size: 14px; }
-			a { color:#222; text-decoration: none; padding: 2px 3px; background: #40B8ED; }
-			a:hover { color: #222; background: none; }
-			h1 { color:#666; font-size: 64px; font-weight: normal; margin-bottom:0px; }
-			h2 { color:#666; font-weight: normal; margin-bottom:0px; }
-			h3 { color:#666; font-weight: normal !important; margin-bottom:0px; }
-			h4 { color:#666; font-weight: normal; margin-bottom:0px; }
-			img { background: #fff !important; border: none; padding: 0; margin: 0px; }
-			img a { text-decoration: none !important; background: #fff !important; margin: 0px; }
-			input { border: 1px solid #999; }
-			.photo a, .disqus a { text-decoration: none !important; background: #fff !important; }
-			.header { margin-bottom: 20px; }
-			.wrapper { width: 520px; margin: auto; }
-			.main { margin: 50px 0px; }
-			.datetime { font-size: 12px; line-height: 150%; color: #666; position:relative; float:left; margin-left:-250px; padding-right: 25px; border-right: 1px solid #999; width: 200px; text-align: right; clear: both; }
-			.navleft { font-size: 12px; position: relative; float: left; }
-			.navright { font-size: 12px; position: relative; float: right; }
-			.navcenter { font-size: 12px; text-align:center; width: 500px; }
+			body,
+			html {
+			    background: #fff;
+			    margin: 0;
+			    padding: 0;
+			    border: none;
+			    font-family: "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+			    font-size: 16px;
+			    line-height: 150%;
+			    color: #222;
+			    text-align: center;
+			}
+			pre {
+			    font-size: 14px
+			}
+			a {
+			    color: #222;
+			    text-decoration: none;
+			    padding: 2px 3px;
+			    /*background: #40B8ED;*/
+			}
+			a:hover {
+			    color: #222;
+			    background: none;
+			}
+			h1 {
+			    color: #222;
+			    font-size: 64px;
+			    font-weight: normal;
+			    margin-bottom: 0px;
+			}
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+			    color: #222;
+			    font-weight: normal;
+			    margin-bottom: 0px;
+			}
+			img {
+			    background: #fff !important;
+			    border: none;
+			    padding: 0;
+			    margin: 0px;
+			}
+			img a {
+			    text-decoration: none !important;
+			    background: #fff !important;
+			    margin: 0px;
+			}
+			input {
+			    border: 1px solid #999
+			}
+			.photo a,
+			.disqus a {
+			    text-decoration: none !important;
+			    background: #fff !important;
+			}
+			.header {
+			    margin-bottom: 20px
+			}
+			.wrapper {
+			    width: 520px;
+			    margin: auto;
+			}
+			.main {
+			    margin: 50px 0px
+			}
+			.datetime {
+			    font-size: 12px;
+			    line-height: 150%;
+			    color: #222;
+			    position: relative;
+			    float: left;
+			    margin-left: -250px;
+			    padding-right: 25px;
+			    border-right: 1px solid #999;
+			    width: 200px;
+			    text-align: right;
+			    clear: both;
+			}
+			.navleft {
+			    font-size: 16px;
+			    position: relative;
+			    float: left;
+			}
+			.navright {
+			    font-size: 16px;
+			    position: relative;
+			    float: right;
+			}
+			.navcenter {
+			    text-align: center;
+			    width: 500px;
+			}
 			.post .navcenter:last-child {
-				display:none;
+			    display: none
 			}
 			.main .post .navcenter {
-				display:block !important;
+			    display: block;
 			}
-			.datetime a { color: #666; }
-			.post { padding-bottom: 30px; }
-			.short_quote { margin: 0px; padding: 0px; font-size:62px; line-height: 110%; color: #666; }
-			.medium_quote { margin: 0px; padding: 0px; font-size:36px; line-height: 115%; color: #666; }
-			.long_quote { margin: 0px; padding: 0px; font-size:24px; line-height: 130%; color: #666; }
-			a .notes { text-decoration: none !important; background: none; }
-			.notes a { text-decoration: none !important; background: none; }
-			img .notes { margin: 0px; padding: 3px; border: 1px solid #999; }
-			.notes img { margin: 0px; padding: 3px; border: 1px solid #999; }
-			.disqus { font-family: Georgia, 'Times New Roman', Times !important; size: 16px; line-height:150% !important; color:#333 !important; }
+			.datetime a {
+			    color: #222;
+			}
+			.post {
+			    padding-bottom: 30px;
+			}
+			.short_quote {
+			    margin: 0px;
+			    padding: 0px;
+			    font-size: 62px;
+			    line-height: 110%;
+			    color: #222;
+			}
+			.medium_quote {
+			    margin: 0px;
+			    padding: 0px;
+			    font-size: 36px;
+			    line-height: 115%;
+			    color: #333;
+			}
+			.long_quote {
+			    margin: 0px;
+			    padding: 0px;
+			    font-size: 24px;
+			    line-height: 130%;
+			    color: #444;
+			}
+			a .notes {
+			    text-decoration: none !important;
+			    background: none;
+			}
+			.notes a {
+			    text-decoration: none !important;
+			    background: none;
+			}
+			img .notes {
+			    margin: 0px;
+			    padding: 3px;
+			    border: 1px solid #999;
+			}
+			.notes img {
+			    margin: 0px;
+			    padding: 3px;
+			    border: 1px solid #999;
+			}
+			.disqus {
+			    font-family: sans-serif;
+			    size: 16px;
+			    line-height: 150%;
+			    color: #222;
+			}
+			.regular_post_body img {
+			    max-width: 100%;
+			}
+			.search_query {
+			    font-style: italic
+			}
 
-.regular_post_body img {
-max-width: 100%;
-}
+			.search {
+				display: none;
+			}
 
-.search_query {
-		font-style: italic;
-}
 
-{CustomCSS}
+			{CustomCSS}
 		</style>
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
 	</head>
@@ -183,17 +304,15 @@ max-width: 100%;
 				{/block:PermalinkPagination}
 
 			</div>
-			<div class="post">
+			<div class="post search">
 				<div class="navcenter" style="text-transform:lowercase;">
 					<form action="/search" method="get">
 						<a href="/">{lang:Home}</a>&nbsp;&nbsp;<a href="/archive/">{lang:Archive}</a>&nbsp;&nbsp;<a href="/mobile">{lang:Mobile}</a>&nbsp;&nbsp;<a href="{RSS}">{lang:RSS}</a>&nbsp;&nbsp;<input type="text" name="q" value="{SearchQuery}"/>&nbsp;&nbsp;<input type="submit" value="{lang:Search}"/>
 					</form>
 				</div>
 			</div>
-			<div class="post">
-				<div class="navcenter">
-					Themed by <a href="http://langer.tumblr.com">langer</a>, powered by <a href="http://www.tumblr.com">Tumblr</a>.
-				</div>
+			<div class="post footer">
+
 			</div>
 		</div>
 
