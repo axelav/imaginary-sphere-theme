@@ -1,337 +1,347 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
 	<head>
+		<meta charset="utf-8">
 		<title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
-		<link rel="icon" href="{Favicon}"/>
+		<link rel="shortcut icon" href="{Favicon}">
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+		{block:Description}
+			<meta name="description" content="{MetaDescription}" />
+		{/block:Description}
 		<meta name="viewport" content="width=775"/> <!-- iPhone -->
+		<script type="text/javascript">
+			WebFontConfig = {
+				google: { families: [ "Lato:300", "Lato:400", "Lato:700" ] }
+			};
+			(function() {
+				var wf = document.createElement('script');
+				wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+						'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			})();
+		</script>
+		<!-- <link rel="stylesheet" type="text/css" href="http://infinitemushrooms.com/css/tumblr.css"> -->
 
-		<meta name="text:Disqus Shortname" content="" />
+		<style>
+			/*
+			Reset
+			*/
 
-		<style type="text/css">
-			body,
-			html {
-			    background: #fff;
-			    margin: 0;
-			    padding: 0;
-			    border: none;
-			    font-family: "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
-			    font-size: 16px;
-			    line-height: 150%;
-			    color: #222;
-			    text-align: center;
+			html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { border:0; font-size:100%; font:inherit; vertical-align:baseline; margin:0; padding:0; } article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; } body { line-height:1; } ol,ul { list-style:none; } blockquote,q { quotes:none; } blockquote:before,blockquote:after,q:before,q:after { content:none; } table { border-collapse:collapse; border-spacing:0; }
+
+			/*
+			Animation for Google fonts
+			*/
+
+			h1,h2,h3,p,li,time,pre,small,dl,figcaption {
+				-webkit-transition: opacity 0.25s ease-in-out;
+				   -moz-transition: opacity 0.25s ease-in-out;
+					-ms-transition: opacity 0.25s ease-in-out;
+						transition: opacity 0.25s ease-in-out;
+				opacity:1;
+				visibility: visible;
 			}
-			pre {
-			    font-size: 14px
+
+			.wf-loading h1,.wf-loading h2,.wf-loading h3,.wf-loading p,.wf-loading li,.wf-loading time,.wf-loading pre,.wf-loading small,.wf-loading dl,.wf-loading figcaption {
+				opacity:0;
 			}
+
+			.ie.wf-loading h1,.ie.wf-loading h2,.ie.wf-loading h3,.ie.wf-loading p,.ie.wf-loading li,.ie.wf-loading time,.ie.wf-loading pre,.ie.wf-loading small,.ie.wf-loading dl,.ie.wf-loading figcaption {
+				visibility:hidden;
+			}
+
+			/*
+			Custom styles
+			*/
+
+			body {
+				color:#333;
+				font:300 100%/2 "Lato", "Helvetica Neue", sans-serif;
+				background:#fff;
+				text-align:center;
+			}
+
 			a {
-			    color: #222;
-			    text-decoration: none;
-			    padding: 2px 3px;
-			    /*background: #40B8ED;*/
+				color:rgba(76,135,213,0.5);
+				text-decoration:none;
+				-webkit-transition: color 0.5s ease-in-out;
+				   -moz-transition: color 0.5s ease-in-out;
+					 -o-transition: color 0.5s ease-in-out;
+						transition: color 0.5s ease-in-out;
 			}
+
 			a:hover {
-			    color: #222;
-			    background: none;
+				color:rgba(40,83,152,1);
 			}
+
 			h1 {
-			    color: #222;
-			    font-size: 64px;
-			    font-weight: normal;
-			    margin-bottom: 0px;
+				font-size:300%;
+				font-weight:300;
+				line-height:1;
+				margin:0;
 			}
+
 			h2,
 			h3,
 			h4,
 			h5,
 			h6 {
-			    color: #222;
-			    font-weight: normal;
-			    margin-bottom: 0px;
+				font-weight:300;
+				line-height:2;
+				margin:0;
 			}
+
+			small {
+				font-size:75%;
+			}
+
 			img {
-			    background: #fff !important;
-			    border: none;
-			    padding: 0;
-			    margin: 0px;
+				margin:0 auto;
+				display:block;
 			}
-			img a {
-			    text-decoration: none !important;
-			    background: #fff !important;
-			    margin: 0px;
+
+			.container {
+				width:80%;
+				margin:1em auto;
+				padding:0 0 2em;
 			}
-			input {
-			    border: 1px solid #999
+
+			.ie .container {
+				width:540px;
 			}
-			.photo a,
-			.disqus a {
-			    text-decoration: none !important;
-			    background: #fff !important;
+
+			.module {
+				margin:1em 0;
 			}
-			.header {
-			    margin-bottom: 20px
+
+			.content {
+				vertical-align:top;
+				width:100%;
+				margin:1em 0 0;
+				display:inline-block;
+				position:relative;
+				*zoom:1;
+				*display:inline;
 			}
-			.wrapper {
-			    width: 520px;
-			    margin: auto;
-			}
-			.main {
-			    margin: 50px 0px
-			}
-			.datetime {
-			    font-size: 12px;
-			    line-height: 150%;
-			    color: #222;
-			    position: relative;
-			    float: left;
-			    margin-left: -250px;
-			    padding-right: 25px;
-			    border-right: 1px solid #999;
-			    width: 200px;
-			    text-align: right;
-			    clear: both;
-			}
-			.navleft {
-			    font-size: 16px;
-			    position: relative;
-			    float: left;
-			}
-			.navright {
-			    font-size: 16px;
-			    position: relative;
-			    float: right;
-			}
-			.navcenter {
-			    text-align: center;
-			    width: 500px;
-			}
-			.post .navcenter:last-child {
-			    display: none
-			}
-			.main .post .navcenter {
-			    display: block;
-			}
-			.datetime a {
-			    color: #222;
-			}
+
 			.post {
-			    padding-bottom: 30px;
+				width:15%;
 			}
-			.short_quote {
-			    margin: 0px;
-			    padding: 0px;
-			    font-size: 62px;
-			    line-height: 110%;
-			    color: #222;
+
+			.content img {
+				width:95%;
 			}
-			.medium_quote {
-			    margin: 0px;
-			    padding: 0px;
-			    font-size: 36px;
-			    line-height: 115%;
-			    color: #333;
+
+			.post .caption {
+				color:#fff;
+				background:#000;
+				width:95%;
+				height:100%;
+				left:2.5%;
+				bottom:0;
+				display:block;
+				position:absolute;
+				opacity:0;
 			}
-			.long_quote {
-			    margin: 0px;
-			    padding: 0px;
-			    font-size: 24px;
-			    line-height: 130%;
-			    color: #444;
+
+			.post:hover .caption {
+				opacity:0.5;
+				-webkit-transition: opacity 0.25s ease-in-out;
+				   -moz-transition: opacity 0.25s ease-in-out;
+					-ms-transition: opacity 0.25s ease-in-out;
+						transition: opacity 0.25s ease-in-out;
 			}
-			a .notes {
-			    text-decoration: none !important;
-			    background: none;
+
+			.post .caption p {
+				width:100%;
+				height:32px;
+				margin:-16px 0 0;
+				top:50%;
+				position:absolute;
 			}
-			.notes a {
-			    text-decoration: none !important;
-			    background: none;
+
+			.permalink .caption {
+				margin:1em 0;
 			}
-			img .notes {
-			    margin: 0px;
-			    padding: 3px;
-			    border: 1px solid #999;
+
+			.caption p {
+				text-transform:capitalize;
 			}
+
 			.notes img {
-			    margin: 0px;
-			    padding: 3px;
-			    border: 1px solid #999;
-			}
-			.disqus {
-			    font-family: sans-serif;
-			    size: 16px;
-			    line-height: 150%;
-			    color: #222;
-			}
-			.regular_post_body img {
-			    max-width: 100%;
-			}
-			.search_query {
-			    font-style: italic
+				display:none;
 			}
 
-			.search {
-				display: none;
+			.tags li {
+				display:inline-block;
+				*zoom:1;
+				*display:inline;
 			}
 
+			.paginate {
+				width:33%;
+				display:inline-block;
+				*zoom:1;
+				*display:inline;
+			}
 
-			{CustomCSS}
+			@media screen and (max-width: 60em) {
+				.container {
+					width:80%;
+				}
+
+				.post {
+					width:45%;
+				}
+
+				.paginate {
+					width:20%;
+				}
+			}
+
+			@media screen and (max-width: 40em) {
+				.container {
+					width:90%;
+				}
+
+				.post {
+					width:100%;
+				}
+
+				.paginate {
+					width:100%;
+					display:block;
+				}
+			}
+
 		</style>
-{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
 	</head>
 	<body>
-		<div class="wrapper">
-			<div class="header">
+		<div class="container">
+			<header class="module">
 				<h1><a href="/">{Title}</a></h1>
-						<p style="display: none; {block:HasPages}display: block;{/block:HasPages}{block:AskEnabled}display: block;{/block:AskEnabled}{block:SubmissionsEnabled}display: block;{/block:SubmissionsEnabled}">
-						{block:HasPages}
-								{block:Pages}<a href="{URL}">{Label}</a>&nbsp;&nbsp;&nbsp;{/block:Pages}
-								{block:AskEnabled}<a href="/ask">{AskLabel}</a>&nbsp;&nbsp;&nbsp;{/block:AskEnabled}
-								{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
-						{/block:HasPages}
-						</p>
-				<p>{Description}</p>
-			</div>
-			<div class="main">
-				{block:SearchPage}
-				<div class="post">
-					<div class="datetime">
-						{lang:SearchResultCount results}
-					</div>
-					{lang:Search results for SearchQuery 2}</h2>
-				</div>
-				{/block:SearchPage}
-				{block:Posts}
-				<div class="post">
-					<div class="datetime">
-						{block:Date}{block:NewDayDate}{Month} {DayOfMonth}, {Year} at {/block:NewDayDate}{12Hour}:{Minutes}{AmPm}<br />
-						{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a><br />{block:IfDisqusShortname}{/block:Date}
-						{block:Pagination}
-						<a href="{Permalink}">{NoteCountWithLabel}</a><br />
-						{/block:Pagination}
-						{block:SearchPage}
-						<a href="{Permalink}">{NoteCountWithLabel}</a><br />
-						{/block:SearchPage}
-						{block:PermalinkPage}
-						<a href="/">{lang:Home}</a><br />
-						{/block:PermalinkPage}
-						{block:RebloggedFrom}{lang:Reblogged from ReblogRootName 2}<br />{/block:RebloggedFrom}
-					</div>
-				{block:Regular}
-					{block:Title}<h2>{Title}</h2>{/block:Title}
-					<p style="regular_post_body">{Body}</p>
-				{/block:Regular}
-
-				{block:Photo}
-					<span class="photo">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}">{LinkCloseTag}</span>
-					<p>{Caption}</p>
-				{/block:Photo}
-
-				{block:Quote}
-					<p><span class="{Length}_quote">{Quote}</span></p>
-					{block:Source}<p>&mdash;&nbsp;{Source}</p>{/block:Source}
-				{/block:Quote}
-
-				{block:Video}
-					{Video-500}
-					<p>{Caption}</p>
-				{/block:Video}
-
-				{block:Audio}
-					{AudioPlayerGrey}
-					<p>{Caption}</p>
-				{/block:Audio}
-
-				{block:Link}
-					<h2><a href="{URL}" {Target}>{Name}</a>&nbsp;&rarr;</h2>
-					{block:Description}<p>{Description}</p>{/block:Description}
-				{/block:Link}
-
-				{block:Conversation}
-					{block:Title}<h2>{Title}</h2>{/block:Title}
-					<p>
-					{block:Lines}
-					{block:Label}<strong>{Label}</strong>{/block:Label} {Line}<br />
-					{/block:Lines}
-					</p>
-				{/block:Conversation}
-				</div>
-				{/block:Posts}
-
+				{block:Description}
+				<p class="description">{Description}</p>
+				{/block:Description}
+			</header>
+			<section class="main">
+			{block:Posts}
+				{block:IndexPage}
+				<article class="post content module">
+					<a href="{Permalink}">
+						<figure>
+				{/block:IndexPage}
 				{block:PermalinkPage}
-				{block:PostNotes}
-				<div class="post">
-					<h3>{lang:Notes}</h3>
-					<p>{PostNotes}</p>
-				</div>
-				{/block:PostNotes}
-
-				{block:IfDisqusShortname}
-				<div class="post disqus">
-						<div id="disqus_thread"></div>
-						<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-						<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
-				</div>
-				{/block:IfDisqusShortname}
+				<article class="permalink content module">
+					<figure>
 				{/block:PermalinkPage}
-
-
+					{block:IndexPage}
+						<img src="{PhotoURL-250}" alt="{PhotoAlt}">
+					{/block:IndexPage}
+					{block:PermalinkPage}
+					{block:HighRes}
+						<a href="/">
+							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+						</a>
+					{/block:HighRes}
+					{/block:PermalinkPage}
+					{block:Caption}
+						<figcaption class="caption">
+						{Caption}
+						</figcaption>
+					{/block:Caption}
+				{block:IndexPage}
+						</figure>
+					</a>
+				{/block:IndexPage}
+				{block:PermalinkPage}
+					</figure>
+				{/block:PermalinkPage}
+				{block:PermalinkPage}
+					<aside class="meta module">
+						{block:Date}
+						<div class="date">
+							<time>{Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}</time>
+						</div>
+						{/block:Date}
+						{block:HasTags}
+						<div class="tags">
+							<ul>
+							{block:Tags}
+								<li>
+									<a href="{TagURL}">{Tag}</a>
+								</li>
+							{/block:Tags}
+							</ul>
+						</div>
+						{/block:HasTags}
+					</aside>
+					{block:PostNotes}
+					<aside class="module">
+						<header>
+							<h3>{lang:Notes}</h3>
+						</header>
+						{PostNotes}
+					</aside>
+					{/block:PostNotes}
+					{/block:PermalinkPage}
+				</article>
+			{/block:Posts}
+			</section>
+			<section class="pagination module">
 				{block:Pagination}
-				{block:NextPage}
-				<div class="navleft" style="text-transform:lowercase;">
-					&larr;&nbsp;<a href="{NextPage}">{lang:Next}</a>
-				</div>
-				{/block:NextPage}
-				{block:PreviousPage}
-				<div class="navright" style="text-transform:lowercase;">
-					<a href="{PreviousPage}">{lang:Previous}</a>&nbsp;&rarr;
-				</div>
-				{/block:PreviousPage}
-				<div class="navcenter">
-					<span class="long_quote">{CurrentPage}.</span>
-				</div>
+				<nav>
+					<div class="prev paginate">
+						{block:PreviousPage}
+							<a href="{PreviousPage}">&larr; {lang:Previous}</a>
+						{/block:PreviousPage}
+					</div>
+					<div class="current paginate">
+						<span>Page {CurrentPage} of {TotalPages}</span>
+					</div>
+					<div class="next paginate">
+						{block:NextPage}
+						<a href="{NextPage}">{lang:Next} &rarr;</a>
+						{/block:NextPage}
+					</div>
+				</nav>
 				{/block:Pagination}
 				{block:PermalinkPagination}
-				{block:NextPost}
-				<div class="navleft" style="text-transform:lowercase;">
-					&larr;&nbsp;<a href="{NextPost}">{lang:Next post}</a>
-				</div>
-				{/block:NextPost}
-				{block:PreviousPost}
-				<div class="navright" style="text-transform:lowercase;">
-					<a href="{PreviousPost}">{lang:Previous post}</a>&nbsp;&rarr;
-				</div>
-				{/block:PreviousPost}
+				<nav>
+					<div class="prev paginate">
+						{block:PreviousPost}
+						<a href="{PreviousPost}">&larr; {lang:Previous}</a>
+						{/block:PreviousPost}
+					</div>
+					<div class="next paginate">
+						{block:NextPost}
+						<a href="{NextPost}">{lang:Next} &rarr;</a>
+						{/block:NextPost}
+					</div>
+				</nav>
 				{/block:PermalinkPagination}
-
-			</div>
-			<div class="post search">
-				<div class="navcenter" style="text-transform:lowercase;">
-					<form action="/search" method="get">
-						<a href="/">{lang:Home}</a>&nbsp;&nbsp;<a href="/archive/">{lang:Archive}</a>&nbsp;&nbsp;<a href="/mobile">{lang:Mobile}</a>&nbsp;&nbsp;<a href="{RSS}">{lang:RSS}</a>&nbsp;&nbsp;<input type="text" name="q" value="{SearchQuery}"/>&nbsp;&nbsp;<input type="submit" value="{lang:Search}"/>
-					</form>
+			</section>
+			<footer class="footer module">
+				<div class="archive">
+					<a href="/archive">Archive</a>
 				</div>
-			</div>
-			<div class="post footer">
-
-			</div>
+				<div class="copyright">
+					<p>
+						<small>&copy;</small> {CopyrightYears} &mdash; Axel Anderson
+					</p>
+				</div>
+			</footer>
 		</div>
-
-		{block:IfDisqusShortname}
-		<script type="text/javascript">
-		//<![CDATA[
-		(function() {
-				var links = document.getElementsByTagName('a');
-				var query = '?';
-				for(var i = 0; i < links.length; i++) {
-				if(links[i].href.indexOf('#disqus_thread') >= 0) {
-						query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-				}
-				}
-				document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
-		})();
-		//]]>
+		<script>
+			var _gaq=[['_setAccount','UA-30049038-1'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
 		</script>
-		{/block:IfDisqusShortname}
-
 	</body>
 </html>
