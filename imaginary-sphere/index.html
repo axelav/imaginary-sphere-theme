@@ -1,0 +1,313 @@
+<!doctype html>
+<!--[if lt IE 8]><html class="ie"><![endif]-->
+
+<!-- TODO: fix for ie8 -->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+    <head>
+		<meta charset="utf-8">
+		<title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+		{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+		{/block:Description}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<style>
+			/*
+			Reset
+			*/
+
+			html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { border:0; font-size:100%; font:inherit; vertical-align:baseline; margin:0; padding:0; } article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; } body { line-height:1; } ol,ul { list-style:none; } blockquote,q { quotes:none; } blockquote:before,blockquote:after,q:before,q:after { content:none; } table { border-collapse:collapse; border-spacing:0; }
+
+			/*
+			Custom styles
+			*/
+
+			body {
+				color: #999;
+				font-family: "museo-sans-rounded", sans-serif;
+				font-size: 100%;
+				font-weight: 400;
+				line-height: 2;
+				background: #fff;
+				text-align: center;
+			}
+
+			a {
+				color: #333;
+				text-decoration: none;
+				-webkit-transition: color 0.5s ease-in-out;
+				   -moz-transition: color 0.5s ease-in-out;
+						transition: color 0.5s ease-in-out;
+			}
+
+			a:hover {
+				color: #000;
+			}
+
+			h1 {
+				font-size: 300%;
+				font-weight: 400;
+				line-height: 1;
+				margin: 0;
+				opacity: 0.3;
+			}
+
+			h1:hover {
+				opacity: 1;
+				-webkit-transition: opacity 0.5s ease-in-out;
+				   -moz-transition: opacity 0.5s ease-in-out;
+						transition: opacity 0.5s ease-in-out;
+			}
+
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-weight: 400;
+				line-height: 2;
+				margin: 0;
+			}
+
+			small {
+				font-size: 75%;
+			}
+
+			img {
+				margin: 0 auto;
+				display: block;
+			}
+
+			.container {
+				width: 100%;
+			}
+
+			/*.ie .container {
+				width:540px;
+			}*/
+
+			header {
+				width: 100%;
+				margin: 1em 0 0;
+				position: absolute;
+				z-index: 10;
+			}
+
+			.content {
+				width: 100%;
+				margin: 0;
+				float: left;
+				position: relative;
+			}
+
+			.post {
+				width: 25%;
+			}
+
+			.content img {
+				width: 100%;
+			}
+
+			.post .caption {
+				color: #fff;
+				background: #000;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				display: block;
+				opacity: 0;
+			}
+
+			.post:hover .caption {
+				opacity: 0.5;
+				-webkit-transition: opacity 0.25s ease-in-out;
+				   -moz-transition: opacity 0.25s ease-in-out;
+					-ms-transition: opacity 0.25s ease-in-out;
+						transition: opacity 0.25s ease-in-out;
+			}
+
+			.ie .post .caption {
+				visibility: hidden;
+			}
+
+			.ie .post .caption {
+				visibility: visible;
+			}
+
+			.post .caption p {
+				width: 100%;
+				height: 32px;
+				margin: -16px 0 0;
+				position: absolute;
+				top: 50%;
+			}
+
+			.permalink .caption {
+				margin: 1em 0;
+			}
+
+			.caption p {
+				text-transform: capitalize;
+			}
+
+			.notes img {
+				display: none;
+			}
+
+			.tags li {
+				display: inline-block;
+			}
+
+			.ie .tags li {
+				zoom: 1;
+				display: inline;
+			}
+
+			.paginate {
+
+			}
+
+			@media screen and (max-width: 60em) {
+				.post {
+					width:50%;
+				}
+			}
+
+			@media screen and (max-width: 40em) {
+				.post {
+					width:100%;
+				}
+			}
+
+		</style>
+
+		<script type="text/javascript" src="//use.typekit.net/mfs8vre.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1><a href="/">{Title}</a></h1>
+				{block:Description}
+				<p class="description">{Description}</p>
+				{/block:Description}
+			</header>
+			<div class="main">
+			{block:Posts}
+				{block:IndexPage}
+				<article class="post content">
+					<a href="{Permalink}">
+						<figure>
+				{/block:IndexPage}
+				{block:PermalinkPage}
+				<article class="permalink content">
+					<figure>
+				{/block:PermalinkPage}
+					{block:IndexPage}
+						<img src="{PhotoURL-250}" alt="{PhotoAlt}">
+					{/block:IndexPage}
+					{block:PermalinkPage}
+					{block:HighRes}
+						<a href="/">
+							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+						</a>
+					{/block:HighRes}
+					{/block:PermalinkPage}
+					{block:Caption}
+						<figcaption class="caption">
+						{Caption}
+						</figcaption>
+					{/block:Caption}
+				{block:IndexPage}
+						</figure>
+					</a>
+				{/block:IndexPage}
+				{block:PermalinkPage}
+					</figure>
+				{/block:PermalinkPage}
+				{block:PermalinkPage}
+					<aside class="meta">
+						{block:Date}
+						<div class="date">
+							<time>{Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}</time>
+						</div>
+						{/block:Date}
+						{block:HasTags}
+						<div class="tags">
+							<ul>
+							{block:Tags}
+								<li>
+									<a href="{TagURL}">{Tag}</a>
+								</li>
+							{/block:Tags}
+							</ul>
+						</div>
+						{/block:HasTags}
+					</aside>
+					{block:PostNotes}
+					<aside>
+						<h3>{lang:Notes}</h3>
+						{PostNotes}
+					</aside>
+					{/block:PostNotes}
+					{/block:PermalinkPage}
+				</article>
+			{/block:Posts}
+			</div>
+			<div class="pagination">
+				{block:Pagination}
+				<nav>
+					<div class="prev paginate">
+						{block:PreviousPage}
+							<a href="{PreviousPage}">&larr; {lang:Previous}</a>
+						{/block:PreviousPage}
+					</div>
+					<div class="current paginate">
+						<span>Page {CurrentPage} of {TotalPages}</span>
+					</div>
+					<div class="next paginate">
+						{block:NextPage}
+						<a href="{NextPage}">{lang:Next} &rarr;</a>
+						{/block:NextPage}
+					</div>
+				</nav>
+				{/block:Pagination}
+				{block:PermalinkPagination}
+				<nav>
+					<div class="prev paginate">
+						{block:PreviousPost}
+						<a href="{PreviousPost}">&larr; {lang:Previous}</a>
+						{/block:PreviousPost}
+					</div>
+					<div class="next paginate">
+						{block:NextPost}
+						<a href="{NextPost}">{lang:Next} &rarr;</a>
+						{/block:NextPost}
+					</div>
+				</nav>
+				{/block:PermalinkPagination}
+			</div>
+			<footer class="footer">
+				<div class="archive">
+					<a href="/archive">Archive</a>
+				</div>
+				<div class="copyright">
+					<p>
+						&copy; {CopyrightYears} &mdash; <a href="http://importantlumens.com">Axel Anderson</a>
+					</p>
+				</div>
+			</footer>
+		</div>
+		<script>
+			var _gaq=[['_setAccount','UA-30049038-1'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+	</body>
+</html>

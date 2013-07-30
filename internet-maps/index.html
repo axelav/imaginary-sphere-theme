@@ -1,0 +1,245 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <meta name="viewport" content="width=775"/> <!-- iPhone -->
+
+        <style>
+            /* ----------------------------------------------------------------
+            Reset
+            ---------------------------------------------------------------- */
+
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { border:0; font-size:100%; font:inherit; vertical-align:baseline; margin:0; padding:0; } article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; } body { line-height:1; } ol,ul { list-style:none; } blockquote,q { quotes:none; } blockquote:before,blockquote:after,q:before,q:after { content:none; } table { border-collapse:collapse; border-spacing:0; }
+
+            /* ----------------------------------------------------------------
+            Custom Styles
+            ---------------------------------------------------------------- */
+
+            body {
+                color:#333;
+                font-family:sans-serif;
+            }
+
+            .container {
+                width:700px;
+                margin:0 auto;
+            }
+
+            .module {
+                margin:0 0 2em;
+            }
+
+            .section {
+                width:85.7142857%; /* 600 / 700 */
+                margin:0 auto 2em;
+            }
+
+            .header {
+                margin:2em auto;
+            }
+
+            .post {
+                background:#eee;
+                background:rgba(85, 26, 139, 0.05);
+                width:83.3333333%; /* 500 / 600 */
+                padding:8.3333333%; /* 50 / 600 */
+            }
+
+            .footer {
+                text-align:center;
+            }
+
+            h1 {
+                font-size:3em;
+                margin:0 0 0.25em;
+            }
+
+            h3 {
+                font-size:1.25em;
+                margin:0 0 0.5em;
+            }
+
+            p {
+                line-height:1.5em;
+                margin:0 0 1em;
+            }
+
+            a {
+                font-style:italic;
+            }
+
+            img {
+                margin:0 auto;
+                padding:0 0 1em;
+                display:block;
+            }
+
+            blockquote {
+                border-left:4px solid #333;
+                border-left:4px solid rgba(0, 0, 238, 0.05);
+                margin:1em 0;
+                padding:0 0 0 1em;
+            }
+
+            .last {
+                margin:0;
+            }
+
+            iframe.photoset {
+                padding:0 0 1em;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="module section header">
+                <h1>{Title}</h1>
+                {block:Description}
+                    <p class="description">{Description}</p>
+                {/block:Description}
+            </div>
+
+            <div class="module section posts">
+                <ol>
+                    {block:Posts}
+                        {block:Text}
+                            <li class="module post text">
+                                {block:Title}
+                                    <h3><a href="{Permalink}">{Title}</a></h3>
+                                {/block:Title}
+
+                                {Body}
+                            </li>
+                        {/block:Text}
+
+                        {block:Photo}
+                            <li class="module post photo">
+                                <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Photo}
+
+                        {block:Photoset}
+                            <li class="module post photoset">
+                                {Photoset-500}
+
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Photoset}
+
+                        {block:Quote}
+                            <li class="module post quote">
+                                "{Quote}"
+
+                                {block:Source}
+                                    <div class="source">{Source}</div>
+                                {/block:Source}
+                            </li>
+                        {/block:Quote}
+
+                        {block:Link}
+                            <li class="module post link">
+                                <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                                {block:Description}
+                                    <div class="description">{Description}</div>
+                                {/block:Description}
+                            </li>
+                        {/block:Link}
+
+                        {block:Chat}
+                            <li class="module post chat">
+                                {block:Title}
+                                    <h3><a href="{Permalink}">{Title}</a></h3>
+                                {/block:Title}
+
+                                <ul class="chat">
+                                    {block:Lines}
+                                        <li class="{Alt} user_{UserNumber}">
+                                            {block:Label}
+                                                <span class="label">{Label}</span>
+                                            {/block:Label}
+
+                                            {Line}
+                                        </li>
+                                    {/block:Lines}
+                                </ul>
+                            </li>
+                        {/block:Chat}
+
+                        {block:Video}
+                            <li class="module post video">
+                                {Video-500}
+
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Video}
+
+                        {block:Audio}
+                            <li class="module post audio">
+                                {AudioPlayerBlack}
+
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Audio}
+                    {/block:Posts}
+                </ol>
+            </div>
+
+            <div class="module section footer">
+                {block:PreviousPage}
+                    <a href="{PreviousPage}">&#171; Previous</a>
+                {/block:PreviousPage}
+
+                {block:NextPage}
+                    <a href="{NextPage}">Next &#187;</a>
+                {/block:NextPage}
+
+                <a href="/archive">Archive</a>
+            </div>
+
+        </div> <!-- end .container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <script>
+            $(function() {
+                $('.post:last-child, .post p:last-child').addClass('last');
+            });
+        </script>
+
+        <script type="text/javascript">
+            var _gauges = _gauges || [];
+            (function() {
+                var t   = document.createElement('script');
+                t.type  = 'text/javascript';
+                t.async = true;
+                t.id    = 'gauges-tracker';
+                t.setAttribute('data-site-id', '501825fff5a1f546a9000003');
+                t.src = '//secure.gaug.es/track.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(t, s);
+            })();
+        </script>
+
+    </body>
+</html>
